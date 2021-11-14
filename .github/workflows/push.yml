@@ -9,11 +9,11 @@ jobs:
         run: cp env.example .env
       - name: Build the stack
         run: docker-compose up -d
-      - name: load .env
-        run: source .env
+        uses: c-py/action-dotenv-to-setenv@v2
+        with:
+          env-file: .env
       - name: view containers
         run: |
-                docker ps
                 export
       - name: Test
         run: docker run --rm --network container:docker-streamingriver_db_1 mariadb mysql -hdb -uroot -p${MARIADB_ROOT_PASSWORD} -e "select 1;"
