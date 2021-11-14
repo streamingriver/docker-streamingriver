@@ -5,7 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: create .env file
+        run: cp env.example .env
       - name: Build the stack
-        run: docker-compose up -d --env-file ./env.example
+        run: docker-compose up -d
+      - uses: c-py/action-dotenv-to-setenv@v2
+        with:
+          env-file: .env
       - name: Test
-        run: docker run --rm --network container:docker-streamingriver_db_1 mariadb mysql -hdb -uroot -p${MARIADB_ROOT_PASSWORD} -e "select 1;"
+        run: |
+                sleep 5
+                docker run --rm --network docker-streamingriver_default mariadb mysql -hdb -uroot -p${MARIADB_ROOT_PASSWORD} -e "select 1;"
