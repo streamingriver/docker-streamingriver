@@ -6,6 +6,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the stack
-        run: docker-compose up -d --env-file ./env.example
+        run: docker-compose ./env.example up -d
       - name: Test
         run: docker run --rm --network container:docker-streamingriver_db_1 mariadb mysql -hdb -uroot -p${MARIADB_ROOT_PASSWORD} -e "select 1;"
