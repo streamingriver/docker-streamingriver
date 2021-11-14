@@ -11,5 +11,9 @@ jobs:
         run: docker-compose up -d
       - name: load .env
         run: source .env
+      - name: view containers
+        run: |
+                docker ps
+                export
       - name: Test
         run: docker run --rm --network container:docker-streamingriver_db_1 mariadb mysql -hdb -uroot -p${MARIADB_ROOT_PASSWORD} -e "select 1;"
