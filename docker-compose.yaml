@@ -1,0 +1,10 @@
+# This compose file is compatible with Compose itself, it might need some
+# adjustments to run properly with stack.
+
+version: '3.5'
+services:
+  db:
+          image: mariadb:latest
+          restart: unless-stopped
+          env_file: .env
+
