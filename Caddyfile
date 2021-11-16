@@ -3,6 +3,6 @@
     file_server
 
     handle /streams/* {
-        reverse_proxy http://app:8000/
+        reverse_proxy http://app:8000
     }
 }
