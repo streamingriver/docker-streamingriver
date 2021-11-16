@@ -1,10 +1,19 @@
-# This compose file is compatible with Compose itself, it might need some
-# adjustments to run properly with stack.
-
 version: '3.5'
 services:
   db:
-          image: mariadb:latest
-          restart: unless-stopped
-          env_file: .env
+    image: mariadb:latest
+    restart: unless-stopped
+    env_file: .env
+  web:
+    image: caddy:latest
+    restart: unless-stopped
+    env_file: .env
+    volumes: 
+       - ./caddy:/data
+       - Caddyfile:/etc/caddy/Caddyfile
+       - sr/web:/web
+    ports:
+      - 80:80
+      - 443:443
+
 
