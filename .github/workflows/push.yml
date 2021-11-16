@@ -19,4 +19,5 @@ jobs:
       - name: Test Caddy
         run: |
               sleep 5
+              docker ps
               docker run --rm --network docker-streamingriver_default curlimages/curl http://web/ 
