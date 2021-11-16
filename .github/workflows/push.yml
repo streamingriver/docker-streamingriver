@@ -18,6 +18,4 @@ jobs:
                 docker run --rm --network docker-streamingriver_default mariadb mysql -hdb -uroot -p${MARIADB_ROOT_PASSWORD} -e "select 1;"
       - name: Test Caddy
         run: |
-              sleep 5
-              docker ps
-              docker run --rm --network docker-streamingriver_default curlimages/curl http://web/ 
+              docker run --rm --network docker-streamingriver_default curlimages/curl -v --silent http://web/ 2>&1
