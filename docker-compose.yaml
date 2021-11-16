@@ -10,8 +10,8 @@ services:
     env_file: .env
     volumes: 
        - ./caddy:/data
-       - Caddyfile:/etc/caddy/Caddyfile
-       - sr/web:/web
+       - ./Caddyfile:/etc/caddy/Caddyfile
+       - ./sr/web:/web
     ports:
       - 80:80
       - 443:443
