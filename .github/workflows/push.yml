@@ -12,7 +12,11 @@ jobs:
       - uses: c-py/action-dotenv-to-setenv@v2
         with:
           env-file: .env
-      - name: Test
+      - name: Test MariaDB
         run: |
                 sleep 5
                 docker run --rm --network docker-streamingriver_default mariadb mysql -hdb -uroot -p${MARIADB_ROOT_PASSWORD} -e "select 1;"
+      - name: Test Caddy
+        run: |
+              sleep 5
+              docker run --rm --network docker-streamingriver_default curlimages/curl http://web/ 
