@@ -1,8 +1,8 @@
 {$SR_HOST} {
-    root * /web/
-    file_server
 
-    handle /streams/* {
-        reverse_proxy http://app:8000
+    reverse_proxy http://admin-gui:80
+
+    handle_path /streams/* {
+        reverse_proxy http://streams-proxy:8000
     }
 }
