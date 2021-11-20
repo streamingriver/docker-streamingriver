@@ -20,3 +20,7 @@ jobs:
         run: |
               # docker run --rm --network docker-streamingriver_default curlimages/curl -v --silent http://web/ 2>&1
               echo ok
+      - name: Test sr-admin-gui
+        run: |
+             docker run --rm --network docker-streamingriver_default curlimages/curl -v --silent http://sr-admin-gui/ 2>&1
+             

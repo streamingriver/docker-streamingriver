@@ -1,6 +1,6 @@
 {$SR_HOST} {
 
-    reverse_proxy http://admin-gui:80
+    reverse_proxy http://sr-admin-gui:80
 
     handle_path /streams/* {
         reverse_proxy http://streams-proxy:8000
