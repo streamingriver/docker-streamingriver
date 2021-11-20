@@ -19,5 +19,17 @@ services:
     image: ghcr.io/streamingriver/sr-admin-gui:latest
     restart: unless-stopped
     env_file: .env
+    depends_on:
+      - sr-nats-proxy
+  nats:
+    image: nats:latest
+    restart: unless-stopped
+  sr-nats-proxy:
+    image: ghcr.io/streamingriver/go-http-nats-proxy:main
+    restart: unless-stopped
+    depends_on:
+      - nats
+
+    
 
 
