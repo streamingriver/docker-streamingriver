@@ -15,5 +15,9 @@ services:
     ports:
       - 80:80
       - 443:443
+  sr-admin-gui:
+    image: ghcr.io/streamingriver/sr-admin-gui:latest
+    restart: unless-stopped
+    env_file: .env
 
 
