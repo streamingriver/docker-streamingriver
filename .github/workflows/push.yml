@@ -23,4 +23,6 @@ jobs:
       - name: Test sr-admin-gui
         run: |
              docker run --rm --network docker-streamingriver_default curlimages/curl -v --silent http://sr-admin-gui/ 2>&1
-             
+      - name: Test video-gateway
+        run: |
+             docker run --rm --network docker-streamingriver_default curlimages/curl -v --silent http://video-gateway/ 2>&1
