@@ -32,7 +32,7 @@ services:
     depends_on:
       - nats
   video-transcoding:
-    image: ghcr.io/streamingriver/video-transcoding:main
+    image: ghcr.io/streamingriver/video-transcoder:main
     restart: unless-stopped
     depends_on:
       - nats
