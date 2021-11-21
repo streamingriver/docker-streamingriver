@@ -37,9 +37,7 @@ services:
     depends_on:
       - nats
       - video-gateway
+    env_file: .env
   video-gateway:
     image: ghcr.io/streamingriver/video-gateway:main
     restart: unless-stopped
-    
-
-
