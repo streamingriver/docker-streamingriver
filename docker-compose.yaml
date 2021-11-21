@@ -40,8 +40,6 @@ services:
   video-gateway:
     image: ghcr.io/streamingriver/video-gateway:main
     restart: unless-stopped
-    depends_on:
-      - video-transcoding
     
 
 
