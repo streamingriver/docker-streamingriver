@@ -15,6 +15,8 @@ services:
     ports:
       - 80:80
       - 443:443
+    depends_on:
+      - video-gateway
   sr-admin-gui:
     image: ghcr.io/streamingriver/sr-admin-gui:latest
     restart: unless-stopped
@@ -29,7 +31,17 @@ services:
     restart: unless-stopped
     depends_on:
       - nats
-
+  video-transcoding:
+    image: ghcr.io/streamingriver/video-transcoding:main
+    restart: unless-stopped
+    depends_on:
+      - nats
+      - video-gateway
+  video-gateway:
+    image: ghcr.io/streamingriver/video-gateway:main
+    restart: unless-stopped
+    depends_on:
+      - video-transcoding
     
 
 
