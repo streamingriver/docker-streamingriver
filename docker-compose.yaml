@@ -1,9 +1,5 @@
 version: '3.5'
 services:
-  db:
-    image: mariadb:latest
-    restart: unless-stopped
-    env_file: .env
   web:
     image: caddy:latest
     restart: unless-stopped
@@ -22,6 +18,8 @@ services:
     env_file: .env
     depends_on:
       - sr-nats-proxy
+    volumes:
+      - ./.env:/var/www/html/.env:z
   nats:
     image: nats:latest
     restart: unless-stopped
