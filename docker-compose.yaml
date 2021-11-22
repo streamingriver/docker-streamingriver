@@ -25,12 +25,12 @@ services:
     image: nats:latest
     restart: unless-stopped
   sr-nats-proxy:
-    image: ghcr.io/streamingriver/go-http-nats-proxy:main
+    image: ghcr.io/streamingriver/go-http-nats-proxy:latest
     restart: unless-stopped
     depends_on:
       - nats
   video-transcoder:
-    image: ghcr.io/streamingriver/video-transcoder:main
+    image: ghcr.io/streamingriver/video-transcoder:latest
     restart: unless-stopped
     depends_on:
       - nats
