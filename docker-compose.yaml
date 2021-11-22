@@ -11,7 +11,6 @@ services:
     volumes: 
        - ./caddy:/data
        - ./Caddyfile:/etc/caddy/Caddyfile
-       - ./sr/web:/web
     ports:
       - 80:80
       - 443:443
@@ -37,11 +36,9 @@ services:
     depends_on:
       - nats
       - video-gateway
+    env_file: .env
   video-gateway:
     environment:
       - PARSER_TYPE=ffmpeg
     image: ghcr.io/streamingriver/video-gateway:main
     restart: unless-stopped
-    
-
-
