@@ -1,7 +1,9 @@
 {$SR_HOST} {
 
     handle_path /streams/* {
-        reverse_proxy http://video-gateway:80
+        reverse_proxy http://video-gateway:80 {
+            header_up X-Real-IP {remote}
+        }
     }
     
     reverse_proxy http://sr-admin-gui:80
