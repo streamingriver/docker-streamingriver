@@ -1,4 +1,4 @@
-{$SR_HOST} {
+{$SR_PROTO}://{$SR_HOST} {
 
     handle_path /streams/* {
         reverse_proxy http://video-gateway:80 {
