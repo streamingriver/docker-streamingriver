@@ -6,5 +6,8 @@
         }
     }
     
-    reverse_proxy http://sr-admin-gui:80
+    reverse_proxy http://sr-admin-gui:80 {
+            header_up X-Real-IP {remote}
+    }
+
 }
