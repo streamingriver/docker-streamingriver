@@ -38,6 +38,8 @@ services:
       - nats
       - video-gateway
   video-gateway:
+    environment:
+      - PARSER_TYPE=ffmpeg
     image: ghcr.io/streamingriver/video-gateway:main
     restart: unless-stopped
     
