@@ -20,6 +20,7 @@ services:
       - sr-nats-proxy
     volumes:
       - ./.env:/var/www/html/.env:z
+      - sqlite-db:/data
   nats:
     image: nats:latest
     restart: unless-stopped
@@ -38,3 +39,6 @@ services:
   video-gateway:
     image: ghcr.io/streamingriver/video-gateway:main
     restart: unless-stopped
+
+volumes:
+  sqlite-db:
