@@ -17,4 +17,4 @@ sudo yum-config-manager \
 
 sudo yum-config-manager --enable docker-ce-nightly
 
-sudo yum install docker-ce docker-ce-cli containerd.io
+sudo yum install docker-ce docker-ce-cli containerd.io docker-compose

@@ -20,4 +20,4 @@ sudo dnf config-manager \
 
 sudo dnf config-manager --set-enabled docker-ce-nightly
 
-sudo dnf install docker-ce docker-ce-cli containerd.io
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-compose
