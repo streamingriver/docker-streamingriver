@@ -38,6 +38,8 @@ read email
 echo -n "enter admin password: "
 read password
 
+cp env.example .env
+
 sed -i '/SR_PROTO=/d' ./.env
 sed -i '/SR_HOST=/d' ./.env
 sed -i '/ADMIN_EMAIL=/d' ./.env
