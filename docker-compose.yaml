@@ -36,9 +36,12 @@ services:
       - nats
       - video-gateway
     env_file: .env
+    volumes:
+      - vt-data:/etc/supervisor/conf.d
   video-gateway:
     image: ghcr.io/streamingriver/video-gateway:latest
     restart: unless-stopped
 
 volumes:
   sqlite-db:
+  vt-data:
