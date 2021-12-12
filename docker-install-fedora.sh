@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo dnf remove docker \
+dnf -y remove docker \
                   docker-client \
                   docker-client-latest \
                   docker-common \
@@ -11,16 +11,16 @@ sudo dnf remove docker \
                   docker-engine-selinux \
                   docker-engine
 
-sudo dnf -y install dnf-plugins-core
+dnf -y install dnf-plugins-core
 
 
-sudo dnf config-manager \
+dnf config-manager \
     --add-repo \
     https://download.docker.com/linux/fedora/docker-ce.repo
 
-sudo dnf config-manager --set-enabled docker-ce-nightly
+dnf -y config-manager --set-enabled docker-ce-nightly
 
-sudo dnf install docker-ce docker-ce-cli containerd.io
+dnf -y install docker-ce docker-ce-cli containerd.io
 
 install_docker_compose () {
         curl -s https://api.github.com/repos/docker/compose/releases/latest | grep browser_download_url  | grep docker-compose-linux-x86_64 | cut -d '"' -f 4 | wget -qi -

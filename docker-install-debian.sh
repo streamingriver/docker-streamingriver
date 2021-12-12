@@ -1,15 +1,8 @@
 #!/bin/bash
 
-install_docker_compose () {
-	curl -s https://api.github.com/repos/docker/compose/releases/latest | grep browser_download_url  | grep docker-compose-linux-x86_64 | cut -d '"' -f 4 | wget -qi -
-	curl -s https://api.github.com/repos/docker/compose/releases/latest | grep browser_download_url  | grep docker-compose-linux-x86_64.sha256 | cut -d '"' -f 4 | wget -qi -
-}
-
 sudo apt-get remove docker docker-engine docker.io containerd runc
 
-
-sudo apt-get update
-sudo apt-get install \
+apt-get -y install \
     ca-certificates \
     curl \
     gnupg \
@@ -21,8 +14,8 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+apt-get update
+apt-get -y install docker-ce docker-ce-cli containerd.io
 
 install_docker_compose () {
         curl -s https://api.github.com/repos/docker/compose/releases/latest | grep browser_download_url  | grep docker-compose-linux-x86_64 | cut -d '"' -f 4 | wget -qi -

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo yum remove docker \
+yum -y remove docker \
                   docker-client \
                   docker-client-latest \
                   docker-common \
@@ -9,15 +9,15 @@ sudo yum remove docker \
                   docker-logrotate \
                   docker-engine
 
-sudo yum install -y yum-utils
+yum install -y yum-utils
 
 sudo yum-config-manager \
     --add-repo \
     https://download.docker.com/linux/centos/docker-ce.repo
 
-sudo yum-config-manager --enable docker-ce-nightly
+yum-config-manager --enable docker-ce-nightly
 
-sudo yum install docker-ce docker-ce-cli containerd.io
+yum -y install docker-ce docker-ce-cli containerd.io
 
 install_docker_compose () {
 	curl -s https://api.github.com/repos/docker/compose/releases/latest | grep browser_download_url  | grep docker-compose-linux-x86_64 | cut -d '"' -f 4 | wget -qi -
