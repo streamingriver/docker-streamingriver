@@ -67,4 +67,4 @@ echo
 echo 
 echo 
 
-echo "Setup complete. Happy use ;)"
+echo "Setup complete. Happy usage ;)"
