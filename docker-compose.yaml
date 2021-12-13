@@ -41,6 +41,7 @@ services:
   video-gateway:
     image: ghcr.io/streamingriver/video-gateway:latest
     restart: unless-stopped
+    env_file: .env
 
 volumes:
   sqlite-db:
