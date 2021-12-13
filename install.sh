@@ -1,6 +1,6 @@
 #!/bin/bash
 
-distro_id=`grep ^ID= /etc/os-release | awk -F= '{print $2}'|sed -e 's/"//g'
+distro_id=`grep ^ID= /etc/os-release | awk -F= '{print $2}'|sed -e 's/"//g'`
 
 case $distro_id in
 	centos)
