@@ -20,7 +20,14 @@ case $distro_id in
 		;;
 esac
 
-echo -n "enter main url (i.e. - http://example.com, use https if tls is required): "
+echo 
+echo 
+echo 
+echo 
+echo 
+echo 
+
+echo -n "Enter main url (i.e. - http://example.com, use https if tls is required): "
 read url
 
 delimiter="://"
@@ -49,3 +56,15 @@ echo "SR_PROTO=${myarray[0]}" >> ./.env
 echo "SR_HOST=${myarray[1]}" >> ./.env
 echo "ADMIN_EMAIL=${email}" >> ./.env
 echo "ADMIN_PASSWORD=${password}" >> ./.env
+
+chmod 777 .env
+
+/usr/local/sbin/docker-compose up -d 
+
+echo 
+echo 
+echo 
+echo 
+echo 
+
+echo "Setup complete. Happy usage ;)"
