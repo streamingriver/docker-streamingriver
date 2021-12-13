@@ -52,10 +52,15 @@ sed -i '/SR_HOST=/d' ./.env
 sed -i '/ADMIN_EMAIL=/d' ./.env
 sed -i '/ADMIN_PASSWORD=/d' ./.env
 
+sed -i '/APP_URL=/d' ./.env
+
 echo "SR_PROTO=${myarray[0]}" >> ./.env
 echo "SR_HOST=${myarray[1]}" >> ./.env
 echo "ADMIN_EMAIL=${email}" >> ./.env
 echo "ADMIN_PASSWORD=${password}" >> ./.env
+
+echo "APP_URL=\"\${SR_PROTO}://\${SR_HOST}\"" >> ./.env
+
 
 chmod 777 .env
 
