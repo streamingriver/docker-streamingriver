@@ -64,7 +64,7 @@ echo "APP_URL=\"\${SR_PROTO}://\${SR_HOST}\"" >> ./.env
 
 chmod 777 .env
 
-/usr/local/sbin/docker-compose up -d 
+sudo /usr/local/sbin/docker-compose up -d 
 
 echo 
 echo 
